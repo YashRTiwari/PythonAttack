@@ -31,5 +31,23 @@ def view():
     conn.close()
     return rows
 
+def delete(item):
+    conn = sql.connect("app.db")
+    cursor = conn.cursor()
+    # CRITICAL ','
+    cursor.execute("DELETE FROM store WHERE item = ?", (item,))
+    conn.commit()
+    conn.close()
 
+
+def update(item, qty, price):
+    conn = sql.connect("app.db")
+    cursor = conn.cursor()
+    cursor.execute("UPDATE store SET quantity = ?, price = ? WHERE item= ?", (qty,price, item))
+    conn.commit()
+    conn.close()
+
+# delete("Wine")
+print(view())
+update("IPhone", 20, 40002)
 print(view())
