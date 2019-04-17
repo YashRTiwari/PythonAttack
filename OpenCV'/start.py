@@ -21,6 +21,7 @@ resized_image = cv2.resize(img, (int(img.shape[1]/2), int(img.shape[0]/2)))
 
 # TO show an image
 cv2.imshow("Image", resized_image)
+cv2.imwrite("Galaxy_resize.jpg", resized_image)
 # 0 - close on key press
 # else - time in milli, cv2.waitKey(2000)
 cv2.waitKey(0)
